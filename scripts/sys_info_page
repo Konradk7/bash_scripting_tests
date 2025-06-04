@@ -1,10 +1,12 @@
 #!/bin/bash
 
-echo "<html>"
-echo "  <head>"
-echo "    <title> Title</title>"
-echo "  </head>"
-echo "  <body>"
-echo "    Main page."
-echo "  </body>"
-echo "</html>"
+title="System raport.!"
+
+echo "<html>
+        <head>
+	  <title>$title</title>
+        </head>
+        <body>
+          <h1>$title </h1>
+        </body>
+</html>"
