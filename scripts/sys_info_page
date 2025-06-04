@@ -1,6 +1,8 @@
 #!/bin/bash
 
-title="System raport.!"
+title="System raport for $HOSTNAME!"
+CURRENT_TIME="$(date +"%x %r %Z")"
+TIME_STAMP="Made $CURRENT_TIME, by $USER"
 
 echo "<html>
         <head>
@@ -8,5 +10,6 @@ echo "<html>
         </head>
         <body>
           <h1>$title </h1>
+	  <p>$TIME_STAMP</p>
         </body>
 </html>"
