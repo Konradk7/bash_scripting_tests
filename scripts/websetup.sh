@@ -1,20 +1,27 @@
 #!/bin/bash
 
-sudo yum install wget unzip httpd -y > /dev/null
+#Variables
+PACKAGE="httpd get unzip"
+SVC="httpd"
+URL="https://www.tooplate.com/zip-templates/2098_health.zip"
+ART_NAME="2098_health"
+TEMPDIR="/tmp/webfiles"
 
-sudo systemctl start httpd
-sudo systemctl enable httpd
+sudo yum install $PACKAGE -y > /dev/null
 
-mkdir -p /tmp/webfiles
-cd /tmp/webfiles
+sudo systemctl start $SVC
+sudo systemctl enable $SVC
 
-wget https://www.tooplate.com/zip-templates/2098_health.zip > /dev/null
-unzip 2098_health.zip > /dev/null
-sudo cp -r 2098_health/* /var/www/html
+mkdir -p $TEMPDIR
+cd $TEMPDIR
 
-sudo systemctl restart httpd
+wget $URL > /dev/null
+unzip $ART_NAME.zip > /dev/null
+sudo cp -r $ART_NAME/* /var/www/html
 
-rm -rf /tmp/webfiles
+sudo systemctl restart $SVC
 
-sudo systemctl status httpd
+rm -rf $TEMPDIR
+
+sudo systemctl status $SVC
 ls /var/www/html
