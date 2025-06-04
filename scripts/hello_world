@@ -1,0 +1,3 @@
+#!/bin/bash
+#Its my first script there.
+echo 'Hello, world!'
