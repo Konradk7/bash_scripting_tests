@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "<html>"
+echo "  <head>"
+echo "    <title> Title</title>"
+echo "  </head>"
+echo "  <body>"
+echo "    Main page."
+echo "  </body>"
+echo "</html>"
