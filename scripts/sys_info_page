@@ -4,12 +4,24 @@ title="System raport for $HOSTNAME!"
 CURRENT_TIME="$(date +"%x %r %Z")"
 TIME_STAMP="Made $CURRENT_TIME, by $USER"
 
-echo "<html>
-        <head>
-	  <title>$title</title>
-        </head>
-        <body>
-          <h1>$title </h1>
-	  <p>$TIME_STAMP</p>
-        </body>
+report_uptime(){
+	return
+}
+report_disk_space(){
+	return
+}
+report_home_space(){
+	return
+}
+
+cat << _E0F_
+<html>
+  <head>
+    <title>$title</title>
+  </head>
+  <body>
+    <h1>$title </h1>
+    <p>$TIME_STAMP</p>
+  </body>
 </html>"
+_E0F_
