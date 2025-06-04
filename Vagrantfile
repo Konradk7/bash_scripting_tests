@@ -4,9 +4,13 @@ Vagrant.configure("2") do |config|
     scriptbox.vm.box = "eurolinux-vagrant/centos-stream-9"
 	scriptbox.vm.network "private_network", ip: "192.168.56.12"
         scriptbox.vm.hostname = "scriptbox"
+        scriptbox.vm.synced_folder "./scripts", "/opt/scripts", type: "rsync"
 	scriptbox.vm.provider "virtualbox" do |vb|
      vb.memory = "1024"
    end
+   scriptbox.vm.provision "shell", inline: <<-SHELL
+     dnf install -y git
+   SHELL
   end
 
   config.vm.define "web01" do |web01|
