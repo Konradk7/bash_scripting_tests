@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DELAY=3
+DELAY=5
 
 while [[ "$REPLY" != 0 ]]; do
 clear
@@ -19,9 +19,11 @@ if [[ "$REPLY" =~ ^[0-3]$ ]]; then
   echo "Host name: $HOSTNAME"
   uptime
   sleep "$DELAY"
+  continue
 elif [[ "$REPLY" == 2 ]]; then
   df -h
   sleep "$DELAY"
+  continue
 elif [[ "$REPLY" == 3 ]]; then
   if [[ "$(id -u)" -eq 0 ]]; then
   echo "Home space used (All users)"
@@ -31,6 +33,10 @@ else
   du -sh "$HOME"
 fi
   sleep "$DELAY"
+  continue
+fi
+if [[ "$REPLY" == 0 ]]; then
+  break
 fi
 else
   echo "Invalid option"
